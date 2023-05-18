@@ -1,0 +1,537 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+:root {
+    --primary: #ffffff;
+    --bar: rgba(0, 0, 0, 0);
+    --light: #f3f3f3;
+    --dark: #0B5C3F;
+}
+
+body::-webkit-scrollbar-button {
+    background-color: var(--dark);
+}
+
+body::-webkit-scrollbar {
+    width: 0.6rem;
+}
+
+body::-webkit-scrollbar-track {
+    background: #053a1b;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #0ca546;
+}
+
+html,
+body {
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    margin-left: 0;
+    background-color: var(--primary);
+    color: var(--dark);
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    line-height: 1.4;
+    overflow-x: hidden;
+    /* Hide horizontal scrollbar */
+}
+
+img {
+    max-width: 100%;
+}
+
+h1 {
+    padding-top: 60px;
+}
+
+.wrapper {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Header */
+
+header {
+    object-fit: cover;
+    background-blend-mode: multiply;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding: 2px 0px 0 0px;
+    position: fixed;
+    top: 0;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-areas: "nt mn mn sb . . . ";
+    background-color: var(--bar);
+    width: 100%;
+    margin-bottom: 0px;
+    z-index: 100;
+}
+
+.emsiLogo {
+    grid-area: nt;
+    object-fit: cover;
+    width: 100px;
+    max-height: 100%;
+    padding: 3px 0px 7px 7px;
+}
+
+.emsiLogo img {
+    height: 30px;
+    width: fit-content;
+}
+
+.main-nav {
+    grid-area: mn;
+    padding: 0 50px 0 20px;
+}
+
+.main-nav a {
+    color: var(--light);
+    text-decoration: none;
+    margin: 5px;
+}
+
+.main-nav a:hover {
+    color: var(--dark);
+}
+
+.sub-nav {
+    grid-area: sb;
+    padding: 0 40px 0 40px;
+}
+
+.sub-nav a {
+    color: var(--light);
+    text-decoration: none;
+    margin: 5px;
+}
+
+.sub-nav a:hover {
+    color: var(--dark);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-image: url('https://via.placeholder.com/50');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.user-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+/* Main Content */
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+    main {
+        padding: 10px;
+    }
+}
+
+
+/* Profile Header */
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0px;
+}
+
+.profile-image {
+    min-width: 150px;
+    width: 28%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    float: left;
+    position: relative;
+    display: block;
+    margin-right: 10%;
+}
+
+.profile-image img {
+    width: 100%;
+}
+
+.details {
+    font-size: 30px;
+    margin-left: 40%;
+}
+
+.change-image-btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.change-image-btn:hover {
+    opacity: 1;
+}
+
+.edit-profile-button {
+    background-color: #0B5C3F;
+    border: 2px solid;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-table;
+    font-size: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    position: relative;
+    bottom: 0;
+    right: 0;
+    padding: 10px 20px;
+}
+
+
+/* Profile Details */
+
+.profile-details {
+    border: 2px solid #ccc;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    width: 100%;
+    margin: 10px;
+    position: relative;
+}
+
+@media only screen and (max-width: 768px) {
+    .profile-details {
+        padding: 50px;
+    }
+}
+
+
+/* Edit Profile Form */
+
+.edit-profile-form {
+    display: none;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+}
+
+.close-edit-profile {
+    float: right;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* CSS for the wishlist section */
+
+.wishlist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.wishlist li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.book-cover {
+    width: 80px;
+    height: 120px;
+    margin-right: 10px;
+}
+
+.book-details {
+    flex-grow: 1;
+}
+
+.book-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.book-author {
+    font-size: 14px;
+    color: #888;
+}
+
+.book-description {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.wishlist-actions {
+    display: flex;
+    align-items: center;
+}
+
+.wishlist-action {
+    margin-right: 10px;
+}
+
+.wishlist-action button {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+
+/* Book History */
+
+.books-read {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.books-read h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.books-read ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.books-read li {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 5px;
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+}
+
+@media screen and (max-width: 600px) {
+    .books-read li {
+        width: 100%;
+    }
+}
+
+.book-history {
+    margin-top: 50px;
+}
+
+.book-history h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.book-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.book-title {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.book-status {
+    font-size: 1rem;
+    font-style: italic;
+}
+
+.popup-overlay {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+
+
+/* Popup */
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+    display: none;
+}
+
+.popup h2 {
+    margin-bottom: 20px;
+}
+
+.popup form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.popup input[type="file"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #f4f4f4;
+}
+
+.popup .cancel-btn {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.popup button[type="submit"] {
+    background-color: #0B5C3F;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.popup .cancel-btn {
+    background-color: #ddd;
+    color: #333;
+}
+
+
+/* Form Elements */
+
+input[type=text],
+input[type=email],
+input[type=password],
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type=submit] {
+    background-color: #0B5C3F;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 40px;
+}
+
+input[type=submit]:hover {
+    background-color: #0B5C3F;
+}
+
+
+/* Responsive Design */
+
+@media only screen and (max-width: 768px) {
+    header {
+        padding: 10px;
+    }
+    .user-photo {
+        width: 30px;
+        height: 30px;
+        margin-right: 5px;
+    }
+    .user-name {
+        font-size: 1rem;
+    }
+    .profile-image img {
+        width: 100%;
+        height: auto;
+    }
+    .background-photo {
+        height: 150px;
+    }
+    .edit-profile-button {
+        font-size: 15px;
+    }
+    .book-list {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .book-title {
+        font-size: 0.8rem;
+    }
+    .book-status {
+        font-size: 0.8rem;
+    }
+    input[type=submit] {
+        padding: 10px 16px;
+        border-radius: 30px;
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    main {
+        max-width: 100%;
+        padding: 10px;
+    }
+    .background-photo {
+        height: 100px;
+    }
+    .profile-details {
+        padding: 20px;
+    }
+    input[type=submit] {
+        font-size: 12px;
+    }
+}
