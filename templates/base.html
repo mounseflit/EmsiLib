@@ -1,0 +1,120 @@
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{% block titre %}
+      
+{% endblock titre %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"
+    integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9"
+    crossorigin="anonymous"></script>
+    {% block appcss %}
+{% endblock appcss %}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="shortcut icon" type="x-icon" href="{% static 'images/logo.png' %}">
+  
+</head>
+
+<style>
+nav {
+	height: 50px;
+
+}	
+
+
+nav ul {
+	list-style-type: none;
+	margin: -10px;
+	overflow: hidden;
+  }
+  
+  nav li {
+	float: left;
+  }
+  
+  nav li a {
+	display: block;
+	padding: 17px;
+	height: 85px;
+	width: 100px;
+	text-align: center;
+	text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  }
+  
+  nav li a:hover {
+	background-image: url('{% static 'images/mk.png' %}');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-position-y: -10px;
+  }
+  
+  </style>
+
+<body>
+
+  <div class="wrapper">
+
+    <!-- HEADER -->
+    <header style="background-image: url('{% static 'images/bar.jpg' %}');">
+      <div class="emsiLogo">
+        
+        <a id="logo" href="https://www.emsi.ma/"><img src="{% static 'images/lgw.png' %}" alt="Logo Image"></a>
+      </div>
+
+      
+      <nav class="main-nav">
+        <ul>
+{% block links %}
+          
+{% endblock links %}
+          
+        </ul>  
+      
+    </header>
+
+{% block content %}
+{% endblock content %}
+	 <section class="link">
+    <div class="logos">
+      <a href="https://www.facebook.com/emsi.ma/"><i class="fab fa-facebook-square fa-2x logo"></i></a>
+      <a href="https://www.instagram.com/groupe.emsi/?igshid=7rikpderxqla"><i
+          class="fab fa-instagram fa-2x logo"></i></a>
+      <a href="https://www.linkedin.com/school/ecole-marocaine-des-sciences-de-l'ing%C3%A9nieur/mycompany/"><i
+          class="fab fa-linkedin fa-2x logo"></i></a>
+      <a href="https://www.youtube.com/channel/UC5BiOBai2N48ytbCRQWWqJw"><i class="fab fa-youtube fa-2x logo"></i></a>
+      <a href="mailto:informations@emsi.ma"><i class="fa fa-envelope fa-2x logo" aria-hidden="true"></i></a>
+    </div>
+    <br><br>
+    <div class="sub-links">
+      <ul>
+        <li><a href="http://127.0.0.1:8000/#about">About Us</a></li>
+        <li><a href="http://127.0.0.1:8000/#loc">Locations</a></li>
+        <li><a href="http://127.0.0.1:8000/#con">Help Center</a></li>
+        <li><a href="https://www.emsi.ma/charte-de-protection-des-donnees-a-caractere-personnel/">School Policy</a></li>
+        <li><a href="http://127.0.0.1:8000/#feat">Features</a></li>
+        <li><a href="http://mounseflit.surge.sh">Relations</a></li>
+        <li><a href="https://www.emsi.ma/centre-de-carrieres/">Career Center</a></li>
+        <li><a href="https://www.emsi.ma/charte-de-protection-des-donnees-a-caractere-personnel/">Terms of Use</a></li>
+        <li><a href="http://127.0.0.1:8000/#con">Contact Us</a></li>
+        <li><a href="https://www.emsi.ma/charte-de-protection-des-donnees-a-caractere-personnel/">Legal Notices</a></li>
+        <li><a href="https://www.emsi.ma/charte-de-protection-des-donnees-a-caractere-personnel/">Privacy</a></li>
+        <li><a href="https://www.emsi.ma/charte-de-protection-des-donnees-a-caractere-personnel/">CopyRights</a></li>
+      
+      </ul>
+    </div>
+  </section>
+  <!-- END OF LINKS -->
+
+  <!-- FOOTER -->
+  <footer>
+
+
+</body>
+</html>
