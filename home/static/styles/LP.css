@@ -1,0 +1,265 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,body {
+	color: #ffffff;
+}
+
+.hero {
+	background-image: url(../images/CEMSI.jpg);
+	background-size: cover;
+	background-position: center;
+	height: 500px;
+}
+
+.hero-overlay {
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}
+
+.hero-overlay h1 {
+	font-size: 4rem;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.hero-overlay p {
+	font-size: 1.5rem;
+	margin-bottom: 30px;
+}
+
+.hero-overlay a {
+	display: inline-block;
+	background-color: #fff;
+	color: #135235;
+	padding: 10px 20px;
+	border-radius: 5px;
+	text-decoration: none;
+	font-size: 1.2rem;
+	border-color: #02290b;
+}
+
+.hero a {
+	display: inline-block;
+	background-color: #3f8048;
+	color: #ffffff;
+	padding: 10px 20px;
+	border-radius: 5px;
+	border-color: #397748;
+	text-decoration: none;
+	font-size: 1.2rem;
+}
+
+.hero a:hover {
+	background-color: #fff;
+	color: #02290b;
+  }
+
+.btx{ 
+	background-color: #022213;
+				border: none;
+				color: white;
+				padding: 15px 32px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				border-radius: 10px;
+}
+
+
+
+.about {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 100px 0;
+}
+
+.about-description {
+	text-align: center;
+	max-width: 50%;
+	margin-bottom: 50px;
+}
+
+.about-description h2 {
+	font-size: 2.5rem;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.about-description p {
+	font-size: 1.2rem;
+}
+
+.about a {
+	display: inline-block;
+	background-color: #3f8048;
+	color: #fff;
+	padding: 10px 20px;
+	border-radius: 5px;
+	text-decoration: none;
+	font-size: 1.2rem;
+	margin-top: 30px;
+}
+.about a:hover {
+	background-color: #ececec;
+	color: #3f8048;
+  }
+
+.about-image {
+	max-width: 50%;
+	margin-bottom: 50px;
+}
+
+.about-image img {
+	width: 100%;
+	height: auto;
+	filter: grayscale(100%);
+	transition: all 0.3s ease-in-out;
+}
+
+
+.features {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 100px 0;
+}
+
+.features h2 {
+	font-size: 2.5rem;
+	font-weight: bold;
+	margin-bottom: 50px;
+}
+
+.features ul {
+	list-style: none;
+	margin-bottom: 50px;
+}
+
+.features ul li {
+	font-size: 1.2rem;
+	margin-bottom: 10px;
+}
+
+.features ul li i {
+	color: #333;
+	margin-right: 10px;
+}
+
+.features a {
+	display: inline-block;
+	background-color: #3f8048;
+	color: #fff;
+	padding: 10px 20px;
+	border-radius: 5px;
+	text-decoration: none;
+	font-size: 1.2rem;
+}
+
+.features a:hover {
+	background-color: #ecfff8;
+	color: #3f8048;
+  }
+
+/* Parallax Scrolling */
+.hero {
+    background-image: url("background-image.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  }
+  
+  /* Hover Animations */
+
+  
+  button:hover {
+    box-shadow: 0px 0px 5px #02290b;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  img:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+  }
+  
+  /* Fade-In Animations */
+  .hero-overlay h1,
+  .hero-overlay p,
+  .about-description h2,
+  .about-description p {
+    opacity: 0;
+    animation: fade-in 1s ease-in-out forwards;
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Slider Animations */
+  .about-image {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .about-image img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    left: 0;
+    top: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .about-image img:not(:first-child) {
+    opacity: 0;
+  }
+  
+  .about-image:hover img:not(:hover) {
+    opacity: 0.5;
+  }
+  
+  .about-image:hover img:hover {
+    opacity: 1;
+  }
+  
+  /* Loading Animations */
+  .loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .loader img {
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  

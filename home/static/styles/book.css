@@ -1,0 +1,95 @@
+html,
+body {
+    
+    background-color: #98d3b6 !important;
+    color: #021a09 !important;
+    background-image: url(../images/txtr.jpg);
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    line-height: 1.4;
+    overflow-x: hidden;
+    background-image: url(../images/txtr.jpg);
+    place-items: center;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-blend-mode: multiply;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+
+.book-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 100px;
+}
+
+.book-cover {
+    margin-right: 20px;
+    margin-left: 50px;
+}
+
+.book-details {
+    margin-bottom: 20px;
+    margin-top: -70px;
+}
+
+.comments-section {
+    width: 100%;
+    align-items: center;
+}
+
+.user-comment {
+    margin-bottom: 10px;
+}
+
+.comment-username {
+    font-weight: bold;
+}
+
+.new-comment {
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #0f5825;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+    .book-details-container {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .book-cover {
+        margin-right: 40px;
+    }
+    .book-details {
+        margin-bottom: 0;
+    }
+    .comments-section {
+        width: 50%;
+        margin-left: 20px;
+    }
+}
