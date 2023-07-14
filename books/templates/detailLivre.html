@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block titre %}
+
+{{ livre.nom }}
+
+{% endblock titre %}
+
+{% block appcss %}
+<link rel="stylesheet" href="{% static 'styles/browse.css' %}">
+<link rel="stylesheet" href="{% static 'styles/book.css' %}">
+{% endblock appcss %}
+
+
+{% block links %}
+<li><a href="http://127.0.0.1:8000/books/#home">Home</a></li>
+<li><a href="http://127.0.0.1:8000/books/#mylist">Collection</a></li>
+<li><a href="http://127.0.0.1:8000/books/#trend">Trending</a></li>
+<li><a href="http://127.0.0.1:8000/books/#cours">Courses</a></li>
+<li><a href="http://127.0.0.1:8000/books/#new">Reserved</a></li>
+</nav>
+<nav class="sub-nav" style="margin-top:10px;">
+  <a href="http://127.0.0.1:8000/books/search"><i class="fas fa-search sub-nav-logo"></i></a>
+  <a href="{% url 'infos' %}"><i class="fas fa-user-circle sub-nav-logo"></i></a>
+  <a href="http://127.0.0.1:8000/#"><i class="fas fa-user-times sub-nav-logo"></i></a>
+</nav>
+{% endblock links %}
+
+{% block content %}
+
+<br><br><br><br><br>
+     <form method="post">
+        {% csrf_token %}
+        <main class="mnmn">
+            <section class="profile-header">
+    
+                <div class="profile-details">
+        <div class="book-details-container">
+            <div class="book-cover">
+                <img src="{{ livre.image }}">
+            </div>
+            <div class="book-details">
+                <h2>{{ livre.nom }}</h2>
+                <p>Auteur : {{ livre.auteur }}</p>
+                <p>Catégorie : {{ livre.categorie }}</p>
+                <p>Etat : {{ livre.etat }}</p>
+                <p>Note : {{ livre.rate }}</p>
+                <p>Description : {{ livre.description }}</p>
+                <button type="submit" name="reserve_button">Réserver</button>
+            </div>
+        </div>
+     </form>
+    
+            </div>
+        </div>
+        <br>
+    </div>
+</sectio>
+
+
+       <div class="comments-section">
+        <h3>Comments</h3>
+        <div class="new-comment">
+            <form method="post">
+                {% csrf_token %}
+    
+                <input type="text" name="contenu" placeholder="Leave a comment...">
+                <button type="submit">Comment</button>
+            </form>
+        </div>
+        {% for commentaire in commentaires reversed %}
+            <div class="user-comment">
+                <p class="comment-username">{{ commentaire.utilisateur }}</p>
+                <p class="comment-text">{{ commentaire.contenu }}</p>
+            </div>
+        {% empty %}
+            <p>No comments yet.</p>
+        {% endfor %}
+    </div>
+</main>
+    {% endblock content %}
+   

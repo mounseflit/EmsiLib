@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block titre %}
+
+Searching...
+
+{% endblock titre %}
+
+{% block appcss %}
+<link rel="stylesheet" href="{% static 'styles/browse.css' %}">
+<link rel="stylesheet" href="{% static 'styles/book.css' %}">
+{% endblock appcss %}
+
+
+{% block links %}
+<li><a href="http://127.0.0.1:8000/books/#home">Home</a></li>
+<li><a href="http://127.0.0.1:8000/books/#mylist">Collection</a></li>
+<li><a href="http://127.0.0.1:8000/books/#trend">Trending</a></li>
+<li><a href="http://127.0.0.1:8000/books/#cours">Courses</a></li>
+<li><a href="http://127.0.0.1:8000/books/#new">Reserved</a></li>
+</nav>
+<nav class="sub-nav" style="margin-top:10px;">
+  <a href="http://127.0.0.1:8000/books/#home"><i class="fas fa-home sub-nav-logo"></i></a>
+  <a href="{% url 'infos' %}"><i class="fas fa-user-circle sub-nav-logo"></i></a>
+  <a href="http://127.0.0.1:8000/#"><i class="fas fa-user-times sub-nav-logo"></i></a>
+</nav>
+{% endblock links %}
+
+{% block content %}
+
+
+<div class="location" id="hm">
+    <div class="search" style="background-image: url('{% static 'images/bg1.png' %}');">
+
+      <a href="#home"><img src="{% static 'images/logo.png' %}" alt="" id="slg"></a>
+      <form method=POST action= "{% url 'search' %}" >
+        {% csrf_token %}
+      <input id="srb" type="search" placeholder="  Search.." name="searched" >
+      </form>
+    </div>
+
+    <div class="ligne"> </div>
+    
+
+
+  
+<section class="main-container" style="margin-left:40px;">
+<center>
+    {% if searched %}
+     <h1 class="ttl" id="mylist">You Searched For " {{searched}} "</h1><br><br>
+     <div class="box" style="margin-left:40px;">
+        {% for livre in livres %}
+        <span> <a class="bks" href="{{livre.id}}" style="color:#053a1b;"><img src="{{livre.image}}" alt=""><br><br>{{ livre }}</a><br><br></span> <br><br>
+        {% empty %}
+        </div>
+        <h4 class="ttl" style=" width: 40%; text-align: center;padding: 50px;place-items: center;"> >>> No Results For " {{searched}} " <<< </h4><br><br><div>
+        {% endfor %}
+        </div>
+    {% else %} 
+        <h1 class="ttl" id="mylist">Hey! You Forgot To Search...</h1><br><br></div>
+    {% endif %}
+    
+</center>
+<br><br><br><br></section>
+
+{% endblock content %}
+
+   

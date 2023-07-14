@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block titre %}
+      EmsiLib Home
+{% endblock titre %}
+
+{% block appcss %}
+<link rel="stylesheet" href="{% static 'styles/browse.css' %}">
+{% endblock appcss %}
+
+
+{% block links %}
+<li><a href="http://127.0.0.1:8000/books/#home">Home</a></li>
+<li><a href="http://127.0.0.1:8000/books/#mylist">Collection</a></li>
+<li><a href="http://127.0.0.1:8000/books/#trend">Trending</a></li>
+<li><a href="http://127.0.0.1:8000/books/#cours">Courses</a></li>
+<li><a href="http://127.0.0.1:8000/books/#new">Reserved</a></li>
+</nav>
+<nav class="sub-nav" style="margin-top:10px;">
+  
+  <a href="http://127.0.0.1:8000/books/search"><i class="fas fa-search sub-nav-logo"></i></a>
+  <a href="{% url 'infos' %}"><i class="fas fa-user-circle sub-nav-logo"></i></a>
+  <a href="{%url 'logout'%}"><i class="fas fa-user-times sub-nav-logo"></i></a>
+</nav>
+{% endblock links %}
+
+{% block content %}
+    <!-- MAIN-->
+
+    <div class="location" id="home">
+      <div class="search" style="background-image: url('{% static 'images/bg1.png' %}');">
+          
+        <a href="#home"><img src="{% static 'images/logo.png' %}" alt="" id="slg"></a>
+        <form method=POST action= "{% url 'search' %}" >
+          {% csrf_token %}
+        <input id="srb" type="search" placeholder="  Search.." name="searched">
+        </form>
+      </div>
+
+      <div class="ligne"> </div>
+      <div class="bin" style="background-image: url('{% static 'images/bin.png' %}');"></div>
+
+    </div>
+
+
+    <!-- MAIN CONTAINER -->
+
+    <section class="main-container">
+
+
+      <h1 class="ttl" id="mylist">Collection</h1><br><br>
+        <div class="box">
+       {% for livre in livre_object reversed %}
+
+       <span> <a class="bks" href="{{livre.id}}"><img src="{{livre.image}}" alt=""></a></span>
+
+
+   {% endfor %}
+</div>
+
+
+      <h1 class="ttl" id="trend">Trending Now</h1><br>
+      <div class="box">
+
+        
+
+        {% for livre in livre_object %}
+          
+              {% if livre.rate == 5 and forloop.counter < 10 %}
+              <span badge="#{{ forloop.counter }}"><a class="trd" href="{{ livre.id }}"><img src="{{ livre.image }}" alt=""></a></span>
+             {% endif %} 
+        {% endfor %}
+        
+        
+      
+      </div>
+
+      <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+      <script type="text/javascript" src='{% static 'scripts/browse.js' %}'></script>
+
+      <h1 class="ttl" id="cours">Courses</h1><br>
+      <div class="bxx">
+        <div class="referenceblock"><a href="{% static 'cours/C0.html' %}"><img src="{% static 'images/C0.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C1.html' %}"><img src="{% static 'images/C1.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C2.html' %}"><img src="{% static 'images/C2.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C3.html' %}"><img src="{% static 'images/C3.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C4.html' %}"><img src="{% static 'images/C4.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C5.html' %}"><img src="{% static 'images/C5.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C6.html' %}"><img src="{% static 'images/C6.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C7.html' %}"><img src="{% static 'images/C7.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C8.html' %}"><img src="{% static 'images/C8.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C9.html' %}"><img src="{% static 'images/C9.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C10.html' %}"><img src="{% static 'images/C10.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C11.html' %}"><img src="{% static 'images/C11.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C12.html' %}"><img src="{% static 'images/C12.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C13.html' %}"><img src="{% static 'images/C13.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C14.html' %}"><img src="{% static 'images/C14.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C15.html' %}"><img src="{% static 'images/C15.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C16.html' %}"><img src="{% static 'images/C16.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C17.html' %}"><img src="{% static 'images/C17.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C18.html' %}"><img src="{% static 'images/C18.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C19.html' %}"><img src="{% static 'images/C19.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C20.html' %}"><img src="{% static 'images/C20.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C21.html' %}"><img src="{% static 'images/C21.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C22.html' %}"><img src="{% static 'images/C22.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C23.html' %}"><img src="{% static 'images/C23.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C24.html' %}"><img src="{% static 'images/C24.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C25.html' %}"><img src="{% static 'images/C25.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C26.html' %}"><img src="{% static 'images/C26.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C27.html' %}"><img src="{% static 'images/C27.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C28.html' %}"><img src="{% static 'images/C28.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C29.html' %}"><img src="{% static 'images/C29.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C30.html' %}"><img src="{% static 'images/C30.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C31.html' %}"><img src="{% static 'images/C31.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C32.html' %}"><img src="{% static 'images/C32.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C33.html' %}"><img src="{% static 'images/C33.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C34.html' %}"><img src="{% static 'images/C34.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C35.html' %}"><img src="{% static 'images/C35.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C36.html' %}"><img src="{% static 'images/C36.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C37.html' %}"><img src="{% static 'images/C37.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C38.html' %}"><img src="{% static 'images/C38.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C39.html' %}"><img src="{% static 'images/C39.jpg' %}" alt=""></a></div>
+        <div class="referenceblock"><a href="{% static 'cours/C40.html' %}"><img src="{% static 'images/C40.jpg' %}" alt=""></a></div>
+      </div>
+      <br><br>
+      <button class="bt" id="bt" onclick="toggler()" hid>Show More</button>
+       <!--<a class="bks" href=""><img src="../../STATIC/images/b23.jpg alt=""></a>
+        <a class="bks" href=""><img src="../../STATIC/images/b17.jpg alt=""></a>
+        <a class="bks" href=""><img src="../../STATIC/images/b10.jpg alt=""></a>
+        <a class="bks" href=""><img src="../../STATIC/images/b22.jpg alt=""></a>
+        <a class="bks" href=""><img src="../../STATIC/images/b8.jpg alt=""></a>
+        <a class="bks" href=""><img src="../../STATIC/images/b24.jpg alt=""></a>-->
+
+
+
+      <h1 class="ttl"  id="new">Reserved</h1><br>
+      {% for reserved_book in reserved_books %}
+    <a class="bks" href="{{reserved_book.id}}"><img src="{{reserved_book.image}}" alt="">
+    
+{% endfor %}
+      <div class="box">
+       
+      </div>
+
+
+  </div>
+
+
+
+  <!-- END OF MAIN CONTAINER -->
+  {% endblock content %}
