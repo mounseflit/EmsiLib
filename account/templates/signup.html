@@ -1,0 +1,168 @@
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>EmsiLib Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"
+    integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{% static 'styles/login.css' %}">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="shortcut icon" type="x-icon" href="{% static 'images/logo.png' %}">
+
+</head>
+
+<style>
+
+  nav {
+    height: 60px;
+  
+  }	
+  
+  
+  nav ul {
+    list-style-type: none;
+    margin: -10px;
+    overflow: hidden;
+    }
+    
+    nav li {
+    float: left;
+    }
+    
+    nav li a {
+    display: block;
+    padding: 17px;
+    height: 85px;
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    }
+    
+    nav li a:hover {
+    background-image: url('{% static 'images/mk.png' %}');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: -10px;
+    }
+
+</style>
+
+<body>
+
+
+    <!-- HEADER -->
+    <header style="background-image: url('{% static 'images/bar.jpg' %}');">
+      <div class="emsiLogo">
+
+        <a id="logo" href="https://www.emsi.ma/"><img src="{% static 'images/lgw.png' %}" alt="Logo Image"></a>
+      </div>
+
+
+      <nav class="main-nav">
+        <ul>
+
+          <li><a href="http://127.0.0.1:8000/#home">Home</a></li>
+          <li><a href="http://127.0.0.1:8000/#about">About</a></li>
+          <li><a href="http://127.0.0.1:8000/#feat">Features</a></li>
+          <li><a href="http://127.0.0.1:8000/#con">Contact</a></li>
+          <li><a href="http://127.0.0.1:8000/#loc">Campus</a></li>
+          <li><a href="http://127.0.0.1:8000/account/login/">Connect</a></li>
+
+        </ul>
+
+    </header>
+    <br><br>
+    <div class="bigbox">
+    
+
+    <div class="container">
+      
+      
+      <div class="cover">
+        <div class="back">
+          <img class="backImg" src="../../STATIC/images/lire.jpg" alt="">
+          <div class="text">
+            <span class="text-1">Complete miles of journey <br> with one step</span>
+            <span class="text-2">Let's get started</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="signup-form">
+        <div class="title">Signup</div>
+        <form method="POST" action="">
+          {% csrf_token %}
+          <div class="input-boxes">
+            <div class="input-box">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="Enter your username" required name="username">
+            </div>
+            <div class="input-box">
+              <i class="fas fa-envelope"></i>
+              <input type="text" placeholder="Enter your email" required name="email">
+            </div>
+            <div class="input-box">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Enter your password" required name="password1">
+            </div>
+            <div class="input-box">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Confirm your password" required name="password2">
+            </div>
+            <div class="button input-box">
+              <input type="submit" value="Sumbit">
+            </div>
+            <div class="text sign-up-text">Already have an account?<a href="http://127.0.0.1:8000/account/login/"> <label for="flip"> Login now</label></a></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+    <br><br>
+    <section class="link">
+      <div class="logos">
+        <a href="https://www.facebook.com/emsi.ma/"><i class="fab fa-facebook-square fa-2x logo"></i></a>
+        <a href="https://www.instagram.com/groupe.emsi/?igshid=7rikpderxqla"><i
+            class="fab fa-instagram fa-2x logo"></i></a>
+        <a href="https://www.linkedin.com/school/ecole-marocaine-des-sciences-de-l'ing%C3%A9nieur/mycompany/"><i
+            class="fab fa-linkedin fa-2x logo"></i></a>
+        <a href="https://www.youtube.com/channel/UC5BiOBai2N48ytbCRQWWqJw"><i class="fab fa-youtube fa-2x logo"></i></a>
+        <a href="mailto:informations@emsi.ma"><i class="fa fa-envelope fa-2x logo" aria-hidden="true"></i></a>
+      </div>
+      <br><br>
+      <div class="sub-links">
+        <ul>
+          <li><a href="http://127.0.0.1:8000/#about">About Us</a></li>
+          <li><a href="http://127.0.0.1:8000/#loc">Locations</a></li>
+          <li><a href="http://127.0.0.1:8000/#con">Help Center</a></li>
+          <li><a href="https://www.emsi.ma/charte-de-protection-des-donnees-a-caractere-personnel/">School Policy</a>
+          </li>
+          <li><a href="http://127.0.0.1:8000/#feat">Features</a></li>
+          <li><a href="http://mounseflit.surge.sh">Relations</a></li>
+          <li><a href="https://www.emsi.ma/centre-de-carrieres/">Career Center</a></li>
+          <li><a href="https://www.emsi.ma/charte-de-protection-des-donnees-a-caractere-personnel/">Terms of Use</a>
+          </li>
+          <li><a href="http://127.0.0.1:8000/#con">Contact Us</a></li>
+          <li><a href="https://www.emsi.ma/charte-de-protection-des-donnees-a-caractere-personnel/">Legal Notices</a>
+          </li>
+          <li><a href="https://www.emsi.ma/charte-de-protection-des-donnees-a-caractere-personnel/">Privacy</a></li>
+          <li><a href="https://www.emsi.ma/charte-de-protection-des-donnees-a-caractere-personnel/">CopyRights</a></li>
+
+        </ul>
+      </div>
+    </section>
+
+
+
+</body>
+
+</html>
